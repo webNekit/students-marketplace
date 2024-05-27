@@ -11,11 +11,7 @@ export const metadata: Metadata = {
   description: "StudentSave - маркетплейс с бесплатными архивами проектов, дизайнов и т.д.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="ru">
       <body className={inter.className + " text-gray-300 font-medium w-full overflow-x-hidden"}>
