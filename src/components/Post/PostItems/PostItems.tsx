@@ -27,7 +27,8 @@ async function getPosts({ limit, category } : iLimitProps) {
               current
             },
             name
-          }
+          },
+            'categoryName' : category->title
       }`;
     const data = await client.fetch(query);
     return data;

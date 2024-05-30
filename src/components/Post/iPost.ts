@@ -3,8 +3,9 @@ export interface iPost {
     title: string;
     slug: { current: string };
     text: string;
-    publishedAt: string
+    publishedAt: string;
     tags: Array<Tag>;
+    categoryName?: string;
     image?: {
         asset: {
             _id: string;

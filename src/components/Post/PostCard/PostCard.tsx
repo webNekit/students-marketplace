@@ -15,8 +15,8 @@ export function PostCard({post, slug} : iPostProps) {
                 <div className="relative w-full h-56">
                     <Image fill src={`${post.image?.asset.url}`} alt={'Изображение поста'} className="w-full h-full object-cover object-center rounded-md" />
                 </div>
-                <div className="w-full pt-3">
-                    <ul className="flex flex-wrap gap-2">
+                <div className="w-full">
+                    <ul className="flex pt-2 flex-wrap gap-2">
                         {post?.tags.map((tag) => {
                             return (
                                 <li key={tag._id} className="inline-flex">
@@ -27,7 +27,7 @@ export function PostCard({post, slug} : iPostProps) {
                     </ul>
                     <h3 className="text-lg font-medium text-white">{post.title}</h3>
                     <p className="text-gray-200 my-2">{post.text}</p>
-                    <Button className="w-full" variant={'default'} asChild>
+                    <Button className="w-full mt-4" variant={'default'} asChild>
                         <Link href={slug + post._id}>Подробнее</Link>
                     </Button>
                 </div>
