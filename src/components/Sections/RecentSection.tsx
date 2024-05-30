@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { MoveRight } from "lucide-react";
 
 interface iSectionProps {
     children: React.ReactNode;
@@ -13,7 +14,7 @@ export function RecentSection({ children, title, href }: iSectionProps) {
             <div className="container mx-auto">
                 <div className="w-full flex items-end justify-between">
                     <h2 className="text-gray-50 text-xl md:text-2xl font-medium">{title}</h2>
-                    <Link href={`${href}`} className="text-primary uppercase hover:underline">Все {title}</Link>
+                    <Link href={`${href}`} className="text-primary uppercase flex items-center gap-2 transition-all hover:gap-4">Все {title} <MoveRight size={18} /></Link>
                 </div>
                 <div className="w-full pt-7">
                     {children}

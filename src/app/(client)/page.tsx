@@ -9,19 +9,19 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <RecentSection title="Макеты" href="/design/all">
+      <RecentSection title="Макеты" href="/design">
         <Suspense fallback="Загрузка...">
-          <PostItems limit={8} />
+          <PostItems limit={8} category={'Макеты'} />
         </Suspense>
       </RecentSection>
-      <RecentSection title="Шаблоны" href="/template/all">
+      <RecentSection title="Шаблоны" href="/template">
         <Suspense fallback="Загрузка...">
-            <PostItems limit={8} />
+            <PostItems limit={8} category={'Шаблоны'} />
           </Suspense>
       </RecentSection>
-      <RecentSection title="Библиотеки" href="/libs/all">
+      <RecentSection title="Библиотеки" href="/libs">
         <Suspense fallback="Загрузка...">
-            <PostItems limit={8} />
+            <PostItems limit={8} category={'Библиотеки'} />
           </Suspense>
       </RecentSection>
     </>

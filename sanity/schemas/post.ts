@@ -19,6 +19,14 @@ export const post = {
             validation: (Rule: Rule) => Rule.required().error('Обязательное поле'),
         },
         {
+            name: 'category',
+            title: 'Категория записи',
+            type: 'reference',
+            to: [
+                { type: 'postCategory' }
+            ]
+        },
+        {
             name: 'publishedAt',
             title: 'Дата создания',
             type: 'datetime',
@@ -59,6 +67,6 @@ export const post = {
             options: {
                 hotspot: true
             }
-        }
+        },
     ]
 }
