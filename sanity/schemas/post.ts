@@ -51,6 +51,14 @@ export const post = {
             title: 'Теги',
             type: 'array',
             of: [{ type: 'reference', to: [{ type: 'tag' }] }]
+        },
+        {
+            name: 'image',
+            title: 'Изображение',
+            type: 'image',
+            options: {
+                hotspot: true
+            }
         }
     ]
 }

@@ -15,7 +15,7 @@ async function getPosts() {
 }
 
 export async function ProductCard() {
-    const posts:iPost[] = await getPosts();
+    const posts: iPost[] = await getPosts();
     console.log(posts);
     return (
         <div className="w-full">
