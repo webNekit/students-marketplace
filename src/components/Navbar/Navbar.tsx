@@ -9,7 +9,7 @@ const Links = [
 export function Navbar() {
     return (
         <nav className="w-full">
-            <menu className="w-full flex items-center justify-center gap-5">
+            <menu className="w-full flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-5">
                 <li className="inline-flex">
                     <Link href={"/"} className="p-2 text-gray-400 transition-colors rounded-md hover:text-white hover:bg-white/5">Главная</Link>
                 </li>
