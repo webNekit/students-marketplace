@@ -1,24 +1,21 @@
-"use client";
 import { PageSection } from '@/components/Sections/PageSection';
-import React, { useState } from 'react';
+import React from 'react';
+import { FilterSection } from '@/components/Sections/FilterSection';
 import { Suspense } from "react";
 import { PostItems } from "@/components/Post/PostItems/PostItems";
 import { PostSkelton } from "@/components/Post/PostSkelton/PostSkelton";
-import { FilterSection } from '@/components/Sections/FilterSection';
 
-export default function pageDesign() {
-  const [sort, setSort] = useState("desc");
-  const handleSortChange = (sort:string) => {
-    setSort(sort);
-  }
+
+export default function pageDesign({ searchParams } : { searchParams: {sort?: string | null} }) {
   return (
     <>
       <PageSection title='Макеты' text='Описание страницы макеты' />
-      <FilterSection onSortChange={handleSortChange}>
+      <FilterSection />
+      <div className="container mx-auto">
         <Suspense fallback={<PostSkelton />}>
-          <PostItems sort='' limit={null} category={'Макеты'} detailSlug={'/design'} />
+          <PostItems sort={`${searchParams.sort}`} limit={null} category={'Макеты'} detailSlug={'/design'} />
         </Suspense>
-      </FilterSection>
+      </div>
     </>
   )
 }
