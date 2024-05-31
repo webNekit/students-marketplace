@@ -23,8 +23,8 @@ export function FilterSection() {
                         <DropdownMenuContent>
                             <DropdownMenuLabel>Сортировка</DropdownMenuLabel>
                             <DropdownMenuSeparator />
-                            {/* <DropdownMenuItem><Link href={pathName + "?sort=" + sortParams[1]}>от новых к старым</Link></DropdownMenuItem>
-                            <DropdownMenuItem><Link href={pathName + "?sort=" + sortParams[0]}>от старых к новым</Link></DropdownMenuItem> */}
+                            <DropdownMenuItem><Link href={pathName + "?sort=" + sortParams[1]}>от новых к старым</Link></DropdownMenuItem>
+                            <DropdownMenuItem><Link href={pathName + "?sort=" + sortParams[0]}>от старых к новым</Link></DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>

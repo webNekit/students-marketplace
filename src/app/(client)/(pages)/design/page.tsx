@@ -6,7 +6,7 @@ import { PostItems } from "@/components/Post/PostItems/PostItems";
 import { PostSkelton } from "@/components/Post/PostSkelton/PostSkelton";
 
 
-export default function pageDesign({ searchParams } : { searchParams: {sort?: string | null} }) {
+export default function pageDesign({searchParams}  : { searchParams: {sort?: string | null} }) {
   return (
     <>
       <PageSection title='Макеты' text='Описание страницы макеты' />
