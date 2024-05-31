@@ -32,7 +32,7 @@ async function getPosts({ limit, category, sort = 'desc' } : iLimitProps) {
           },
             'categoryName' : category->title
       }`;
-    const data = await client.fetch(query);
+      const data = await client.fetch(query, {}, { next: { revalidate: 0 } });
     return data;
 }
 
