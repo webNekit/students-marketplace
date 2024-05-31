@@ -5,12 +5,13 @@ import { iPost } from "../iPost";
 interface iLimitProps {
     limit: number | null;
     category: string;
+    sort?: string;
     detailSlug?: string | null;
 }
 
-async function getPosts({ limit, category } : iLimitProps) {
+async function getPosts({ limit, category, sort = 'desc' } : iLimitProps) {
     const query = `
-    *[_type == "post" && category->title == "${category}"] | order(_createdAt desc) ${limit ? `[0...${limit}]` : ''} {
+    *[_type == "post" && category->title == "${category}"] | order(_createdAt ${sort}) ${limit ? `[0...${limit}]` : ''} {
         _id,
         title,
         slug,
@@ -35,8 +36,8 @@ async function getPosts({ limit, category } : iLimitProps) {
     return data;
 }
 
-export async function PostItems({ limit, category, detailSlug }: iLimitProps) {
-    const posts:iPost[] = await getPosts({limit, category});
+export async function PostItems({ limit, category, sort, detailSlug }: iLimitProps) {
+    const posts:iPost[] = await getPosts({limit, category, sort});
     return (
         <>
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">

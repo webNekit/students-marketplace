@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const Links = [
-    { label: 'Макеты', href: 'design' },
-    { label: 'Шаблоны', href: 'template' },
-    { label: 'Библиотеки', href: 'libs' },
+    { label: 'Макеты', href: '/design' },
+    { label: 'Шаблоны', href: '/template' },
+    { label: 'Библиотеки', href: '/libs' },
 ];
 
 export function Navbar() {
