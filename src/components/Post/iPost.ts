@@ -5,6 +5,8 @@ export interface iPost {
     text: string;
     publishedAt: string;
     tags: Array<Tag>;
+    specifics: Array<Specifics>;
+    contents: Array<Contents>;
     categoryName?: string;
     image?: {
         asset: {
@@ -18,4 +20,14 @@ export interface Tag {
     name: string;
     slug: { current: string };
     _id: string;
+}
+
+export interface Specifics {
+    _key: string;
+    title: string;
+}
+
+export interface Contents {
+    _key: string;
+    text: string;
 }

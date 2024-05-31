@@ -39,20 +39,21 @@ export const post = {
             validation: (Rule: Rule) => Rule.max(200).error('Макс.кол-во символов: 200'),
         },
         {
-            name: 'content',
+            name: 'contents',
             title: 'Полное описание',
             type: 'array',
             of: [
-                { type: 'block' },
-                { 
-                    type: 'image',
-                    fields: [{
-                        type: 'text',
-                        name: 'alt',
-                        title: 'Название изображения'
-                    }]
-                },
-            ]
+                {
+                  type: 'object',
+                  fields: [
+                    {
+                      name: 'text',
+                      type: 'text',
+                      title: 'Абзац'
+                    }
+                  ]
+                }
+              ]
         },
         {
             name: 'tags',
@@ -68,5 +69,22 @@ export const post = {
                 hotspot: true
             }
         },
+        {
+            name: 'specifics',
+            title: 'Характеристики',
+            type: 'array',
+            of: [
+              {
+                type: 'object',
+                fields: [
+                  {
+                    name: 'title',
+                    type: 'string',
+                    title: 'Название'
+                  }
+                ]
+              }
+            ]
+          }
     ]
 }

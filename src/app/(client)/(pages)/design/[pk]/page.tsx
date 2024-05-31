@@ -27,6 +27,8 @@ async function getSinglePost({ pk } : iParams) {
               },
               name
             },
+            specifics[],
+            contents[],
             'categoryName' : category->title
         }`;
   const data = await client.fetch(query);
