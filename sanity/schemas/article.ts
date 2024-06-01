@@ -1,4 +1,3 @@
-import { title } from "process";
 import { Rule } from "sanity";
 
 export const article = {
@@ -13,6 +12,10 @@ export const article = {
         {
             name: 'content',
             title: 'Контент'
+        },
+        {
+            name: 'image',
+            title: 'Изображение'
         }
     ],
     fields: [
@@ -30,6 +33,14 @@ export const article = {
             group: 'information'
         },
         {
+            name: 'category',
+            title: 'Категория статьи',
+            type: 'reference',
+            to: [
+                { type: 'articleCategory' }
+            ]
+        },
+        {
             name: 'text',
             title: 'Краткое описание',
             type: 'text',
@@ -37,15 +48,21 @@ export const article = {
             group: 'information'
         },
         {
-            name: 'content',
+            name: 'contents',
             title: 'Полное описание',
             type: 'array',
             of: [
-                { 
-                    type: 'block' 
+                {
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'text',
+                            type: 'text',
+                            title: 'Абзац'
+                        }
+                    ]
                 }
-            ],
-            group: 'content'
-        }
+            ]
+        },
     ]
 }

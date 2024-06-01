@@ -7,6 +7,8 @@ export interface iPost {
     tags: Array<Tag>;
     specifics: Array<Specifics>;
     contents: Array<Contents>;
+    previewLink: string;
+    downloadLink: string;
     categoryName?: string;
     image?: {
         asset: {

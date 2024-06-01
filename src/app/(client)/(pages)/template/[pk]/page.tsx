@@ -1,9 +1,12 @@
-import React from 'react'
+import { PostSingle } from '@/components/Post/PostSingle/PostSingle'
+import { getById } from '@/services/PostService/getById'
+import React, { Suspense } from 'react'
 
-export default function pageSingleTemplate() {
+export default async function pageSingleTemplate({ params }: { params: { pk: string } }) {
+  const post = await getById({ pk: params.pk })
   return (
-    <div>
-      
-    </div>
+    <Suspense fallback={'Загрузка...'}>
+      <PostSingle post={post} />
+    </Suspense>
   )
 }

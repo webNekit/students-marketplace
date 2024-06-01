@@ -1,3 +1,4 @@
+import { ArticleItems } from "@/components/Article/ArticleItems/ArticleItems";
 import { Hero } from "@/components/Hero/Hero";
 import { PostItems } from "@/components/Post/PostItems/PostItems";
 import { PostSkelton } from "@/components/Post/PostSkelton/PostSkelton";
@@ -23,6 +24,11 @@ export default function Home() {
       <RecentSection title="Библиотеки" href="/libs">
         <Suspense fallback={<PostSkelton />}>
           <PostItems limit={8} category={'Библиотеки'} detailSlug={'/libs'}/>
+        </Suspense>
+      </RecentSection>
+      <RecentSection title="Статьи" href="/articles">
+        <Suspense fallback={'Загрузка...'}>
+          <ArticleItems limit={6} detailSlug={'/articles'} sort="desc" />
         </Suspense>
       </RecentSection>
     </>
