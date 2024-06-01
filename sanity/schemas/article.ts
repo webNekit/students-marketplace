@@ -38,7 +38,8 @@ export const article = {
             type: 'reference',
             to: [
                 { type: 'articleCategory' }
-            ]
+            ],
+            group: 'information'
         },
         {
             name: 'text',
@@ -62,7 +63,17 @@ export const article = {
                         }
                     ]
                 }
-            ]
+            ],
+            group: 'content'
         },
+        {
+            name: 'image',
+            title: 'Изображение',
+            type: 'image',
+            options: {
+              hotspot: true
+            },
+            group: 'image'
+          },
     ]
 }

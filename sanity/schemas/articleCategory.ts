@@ -9,6 +9,12 @@ export const articleCategory = defineType({
             name: 'title',
             title: 'Название категории',
             type: 'string'
+        },
+        {
+            name: 'slug',
+            type: 'slug',
+            title: 'URL - адрес',
+            options: { source: 'title' },
         }
     ],
 });
