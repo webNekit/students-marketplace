@@ -11,9 +11,9 @@ export function FilterSection() {
     const searchParams = useSearchParams();
     const sort = searchParams.get("sort");
     return (
-        <section className="w-full py-7">
+        <section className="w-full pt-7">
             <div className="container mx-auto">
-                <div className="w-full pb-4 flex items-center justify-end">
+                <div className="w-full flex items-center justify-end">
                     <DropdownMenu>
                         <DropdownMenuTrigger>
                             <div className="w-12 h-12 rounded-full border-2 flex items-center justify-center transition-colors hover:border-primary">
