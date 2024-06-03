@@ -9,7 +9,7 @@ export async function CategoryFooter() {
             {categories.length > 0 ? categories.map((category) => {
                 return(
                     <li key={category._id} className="w-full">
-                        <Link href={'/articles'} className="hover:underline">{category.title}</Link>
+                        <Link href={`/articles?category=${category.slug?.current}`} className="hover:underline">{category.title}</Link>
                     </li>
                 );
             }) : <p className="sm:col-span-2 md:col-span-4 text-wite text-xl text-destructive">Этот раздел редактируется. Приносим свои извинения!</p>}
