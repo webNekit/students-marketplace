@@ -6,6 +6,9 @@ export async function CategoryFooter() {
     const categories: iCategoryProps[] = await getAllCategory();
     return (
         <ul className="w-full space-y-3">
+            <li className="w-full">
+                <Link href={'/articles'} className="hover:underline">Все статьи</Link>
+            </li>
             {categories.length > 0 ? categories.map((category) => {
                 return(
                     <li key={category._id} className="w-full">
