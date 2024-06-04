@@ -38,10 +38,10 @@ export function Footer() {
                             <h3 className="text-gray-50 text-lg font-medium">Дополнительно</h3>
                             <ul className="w-full space-y-3">
                                 <li className="w-full">
-                                    <Link href={'/design'} className="hover:underline">О проекте</Link>
+                                    <Link href={'/about'} className="hover:underline">О проекте</Link>
                                 </li>
                                 <li className="w-full">
-                                    <Link href={'/template'} className="hover:underline">Авторы</Link>
+                                    <Link href={'/authors'} className="hover:underline">Авторы</Link>
                                 </li>
                             </ul>
                         </div>

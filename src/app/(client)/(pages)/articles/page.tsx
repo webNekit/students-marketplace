@@ -2,7 +2,13 @@ import { ArticleItems } from '@/components/Article/ArticleItems/ArticleItems'
 import { CategoryFilter } from '@/components/Category/CategoryFilter/CategoryFilter';
 import { CategorySort } from '@/components/Category/CategorySort/CategorySort';
 import { PageSection } from '@/components/Sections/PageSection'
+import { Metadata } from 'next';
 import React, { Suspense } from 'react'
+
+export const metadata: Metadata = {
+  title: 'Статьи',
+  description: 'Откройте лучшие ресурсы для программистов и дизайнеров на нашей странице /design. Узнайте о последних тенденциях в веб-дизайне, получите полезные инструменты и советы для разработки интерфейсов. Ваше вдохновение начинается здесь!'
+}
 
 interface iPageProps {
   searchParams: {
