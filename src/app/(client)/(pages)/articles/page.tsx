@@ -1,5 +1,6 @@
 import { ArticleItems } from '@/components/Article/ArticleItems/ArticleItems'
 import { CategoryFilter } from '@/components/Category/CategoryFilter/CategoryFilter';
+import { CategorySort } from '@/components/Category/CategorySort/CategorySort';
 import { PageSection } from '@/components/Sections/PageSection'
 import React, { Suspense } from 'react'
 
@@ -19,14 +20,15 @@ export default function pageArticles({ searchParams }: iPageProps) {
       <section className="w-full py-12">
         <div className="container mx-auto">
           <div className="w-full space-y-10">
-            <div className="w-full flex items-center justify-between gap-5">
+            <div className="w-full flex flex-col md:flex-row items-end md:items-center justify-between gap-5">
               <Suspense fallback={'Загрузка'}>
-                <CategoryFilter getCategory={category} />
+                <CategoryFilter className='order-2 md:order-1' getCategory={category} />
               </Suspense>
+              <CategorySort className='order-1 md:order-2' />
             </div>
             <div className="w-full">
               <Suspense fallback={'Загрузка...'}>
-                <ArticleItems sort={`${sort}`} category={category} limit={null} detailSlug={'/articles'} />
+                <ArticleItems sort={sort} category={category} limit={null} detailSlug={'/articles'} />
               </Suspense>
             </div>
           </div>
