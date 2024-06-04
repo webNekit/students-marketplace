@@ -1,9 +1,21 @@
-import React from 'react';
+import { ArticleSingle } from '@/components/Article/ArticleSingle/ArticleSingle';
+import { iArticle } from '@/components/Article/iArticle';
+import { GetById } from '@/services/ArticleService/getById';
+import React, { Suspense } from 'react';
 
-export default function pageSingleArticle() {
+interface iPageProps {
+    params: {
+        pk: string;
+    }
+}
+
+export default async function pageSingleArticle({ params } : iPageProps) {
+    const article:iArticle = await GetById({ pk: params.pk })
   return (
     <>
-        
+        <Suspense fallback={'Загрузка...'}>
+            <ArticleSingle article={article} />
+        </Suspense>
     </>
   )
 }

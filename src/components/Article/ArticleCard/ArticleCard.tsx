@@ -10,7 +10,7 @@ interface iArticleCardProps {
 
 export async function ArticleCard({ article, slug }: iArticleCardProps) {
     return (
-        <div className="w-full h-96 md:h-[420px] relative rounded-md">
+        <article className="w-full h-96 md:h-[420px] relative rounded-md">
             <div className="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full p-2 md:p-4 flex">
                 <div className="w-full mt-auto p-4 rounded-md border bg-card">
                     <div className="flex items-center gap-4 pb-4">
@@ -26,6 +26,6 @@ export async function ArticleCard({ article, slug }: iArticleCardProps) {
                 </div>
             </div>
             <Image fill src={`${article.image?.asset.url}`} alt="Изображение" className="w-full h-full rounded-md object-cover object-center" />
-        </div>
+        </article>
     );
 }
