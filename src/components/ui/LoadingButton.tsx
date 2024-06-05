@@ -15,7 +15,7 @@ export function LoadingButton({ href, children } : iButtonProps){
         setLoading(true);
     }
     return(
-        <Button className="w-full mt-4" variant={'default'} asChild>
+        <Button className="w-full" variant={'default'} asChild>
             <Link onClick={handleClick} href={href as string}>
                 {loading ? <Spinner /> : children}
             </Link>
