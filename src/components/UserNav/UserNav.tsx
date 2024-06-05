@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import Link from "next/link";
+import { LogOut, Star, User } from "lucide-react";
 
 interface iUserProps {
     email?: string;
@@ -32,14 +33,14 @@ export function UserNav({ email, name, userImage } : iUserProps){
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
                         <DropdownMenuItem asChild>
-                            <Link href={'/profile'}>Мой профиль</Link>
+                            <Link href={'/profile'} className="flex items-center gap-2"><User size={15} />Мой профиль</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href={'/favorites'}>Избранное</Link>
+                            <Link href={'/favorites'} className="flex items-center gap-2"><Star size={15} />Избранное</Link>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                            <LogoutLink>Выйти</LogoutLink>
+                            <LogoutLink className="flex items-center gap-2"><LogOut size={15} />Выйти</LogoutLink>
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
                 </DropdownMenuContent>

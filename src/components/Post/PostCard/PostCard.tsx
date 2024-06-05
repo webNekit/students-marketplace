@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { iPost } from "../iPost";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { LoadingButton } from "@/components/ui/LoadingButton";
+import { Spinner } from "@/components/ui/spinner";
 
 interface iPostProps {
     post: iPost;
@@ -27,9 +27,7 @@ export function PostCard({post, slug} : iPostProps) {
                     </ul>
                     <h3 className="text-lg font-medium text-white">{post.title}</h3>
                     <p className="text-gray-200 my-2">{post.text}</p>
-                    <Button className="w-full mt-4" variant={'default'} asChild>
-                        <Link href={slug + post._id}>Подробнее</Link>
-                    </Button>
+                    <LoadingButton href={slug + post._id}>Подробнее</LoadingButton>
                 </div>
             </div>
         </>
