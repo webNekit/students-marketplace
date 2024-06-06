@@ -34,11 +34,9 @@ export async function PostSingle({ post }: iSingleProps) {
                         </div>
                         <ul className="flex items-center gap-2 w-full sm:w-auto">
                             {isLoginUser ?
-                                <>
                                     <li className="inline-flex w-full sm:w-auto">
                                         <FavoritesButton userId={user?.id} postId={post._id} categoryId={post.categoryId?._id} />
                                     </li>
-                                </>
                                 :
                                 ''
                             }
