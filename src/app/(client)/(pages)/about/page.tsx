@@ -7,8 +7,15 @@ export const metadata: Metadata = {
   }
 
 
-export default function page() {
+export default function aboutPage() {
   return (
-    <div>О нас</div>
+    <section className='w-full py-10'>
+      <div className="container mx-auto">
+        <div className="max-w-5xl mx-auto space-y-5">
+          <h2 className='text-center text-xl md:text-3xl text-white font-semibold'>О нас</h2>
+          <p className="text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam officia dicta pariatur earum tempora perferendis recusandae magni nulla quo eaque. Deserunt voluptatem earum voluptates nihil iure labore quasi ipsum eligendi?</p>
+        </div>
+      </div>
+    </section>
   )
 }
