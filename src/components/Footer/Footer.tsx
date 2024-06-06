@@ -11,7 +11,7 @@ export function Footer() {
                         <Link href={'/'} className="text-2xl text-gray-50 font-semibold">
                             Student<span className="text-primary">Save</span>
                         </Link>
-                        <p className="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nihil aliquid iure! Exercitationem, ad nesciunt aperiam sequi nemo placeat debitis at, omnis sunt vitae voluptatem modi, rem quis expedita non culpa iure fugit repellendus. Rerum minima autem laboriosam odio optio quidem! Voluptas doloremque dignissimos placeat.</p>
+                        <p className="text-gray-400">Наша платформа предлагает обширную коллекцию инструментов, библиотек, шаблонов и учебных материалов, чтобы помочь разработчикам всех уровней создавать высококачественные веб-приложения.</p>
                     </div>
                     <div className="w-full md:w-9/12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                         <div className="w-full space-y-5">
