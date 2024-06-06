@@ -9,6 +9,9 @@ export interface iPost {
     contents: Array<Contents>;
     previewLink: string;
     downloadLink: string;
+    categoryId: {
+        _id: string;
+    }
     categoryName?: string;
     image?: {
         asset: {

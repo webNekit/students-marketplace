@@ -3,12 +3,17 @@ import { iPost } from "../iPost";
 import { BadgeCheck, Eye, ArrowDownToLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { FavoritesButton } from "@/components/ui/FavoritesButton";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 interface iSingleProps {
     post: iPost;
 }
 
 export async function PostSingle({ post }: iSingleProps) {
+    const { isAuthenticated, getUser } = getKindeServerSession();
+    const isLoginUser = await isAuthenticated();
+    const user = await getUser();
     return (
         <>
             <section className='w-full py-7 border-b'>
@@ -28,16 +33,25 @@ export async function PostSingle({ post }: iSingleProps) {
                             </ul>
                         </div>
                         <ul className="flex items-center gap-2 w-full sm:w-auto">
+                            {isLoginUser ?
+                                <>
+                                    <li className="inline-flex w-full sm:w-auto">
+                                        <FavoritesButton userId={user?.id} postId={post._id} categoryId={post.categoryId?._id} />
+                                    </li>
+                                </>
+                                :
+                                ''
+                            }
                             <li className="inline-flex w-full sm:w-auto">
                                 <Button variant={'outline'} asChild className="w-full sm:w-auto">
                                     <Link href={`${post.previewLink}`} target="_blank" className="flex items-center gap-2 w-full sm:w-auto">
-                                    <Eye size={20} />Предпросмотр</Link>
+                                        <Eye size={20} />Предпросмотр</Link>
                                 </Button>
                             </li>
                             <li className="inline-flex w-full sm:w-auto">
                                 <Button variant={'default'} asChild className="w-full sm:w-auto">
                                     <Link href={`${post.downloadLink}`} target="_blank" className="flex items-center gap-2 w-full sm:w-auto">
-                                    <ArrowDownToLine size={20} />Скачать</Link>
+                                        <ArrowDownToLine size={20} />Скачать</Link>
                                 </Button>
                             </li>
                         </ul>
@@ -80,11 +94,6 @@ export async function PostSingle({ post }: iSingleProps) {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section className="w-full py-7">
-                <div className="container mx-auto">
-
                 </div>
             </section>
         </>

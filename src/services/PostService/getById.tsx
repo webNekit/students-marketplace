@@ -29,6 +29,9 @@ export async function getById({ pk }: iParams) {
               contents[],
               downloadLink,
               previewLink,
+              'categoryId': category -> {
+                _id,
+              },
               'categoryName' : category->title
           }`;
     const data = await client.fetch(query);

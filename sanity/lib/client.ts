@@ -8,4 +8,5 @@ export const client = createClient({
   apiVersion,
   useCdn: false,
   perspective: 'published',
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN
 })

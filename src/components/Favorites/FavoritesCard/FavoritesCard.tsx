@@ -1,13 +1,27 @@
 import Image from "next/image";
-import { iPost } from "../iPost";
 import { LoadingButton } from "@/components/ui/LoadingButton";
+import { iPost } from "@/services/FavoritesService/iFavorites";
 
 interface iPostProps {
     post: iPost;
-    slug: string
+    category: string;
 }
 
-export function PostCard({ post, slug }: iPostProps) {
+export function FavoriteCard({ post, category }: iPostProps) {
+    let categoryUrl;
+    switch (category) {
+        case 'Макеты':
+            categoryUrl = '/design/'
+            break;
+        case 'Библиотеки':
+            categoryUrl = '/libs/'
+            break;
+        case 'Шаблоны':
+            categoryUrl = '/templates/'
+            break;
+        default:
+            categoryUrl = '/'
+    }
     return (
         <>
             <div className="w-full bg-card border rounded-md p-3">
@@ -27,7 +41,7 @@ export function PostCard({ post, slug }: iPostProps) {
                     <h3 className="text-lg font-medium text-white">{post.title}</h3>
                     <p className="text-gray-200 my-2">{post.text}</p>
                     <div className="w-full flex gap-2 mt-4">
-                        <LoadingButton href={slug + post._id}>Подробнее</LoadingButton>
+                        <LoadingButton href={categoryUrl + post._id}>Подробнее</LoadingButton>
                     </div>
                 </div>
             </div>
