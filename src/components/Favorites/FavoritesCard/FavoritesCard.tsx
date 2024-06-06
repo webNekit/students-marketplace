@@ -17,10 +17,8 @@ export function FavoriteCard({ post, category }: iPostProps) {
             categoryUrl = '/libs/'
             break;
         case 'Шаблоны':
-            categoryUrl = '/templates/'
+            categoryUrl = '/template/'
             break;
-        default:
-            categoryUrl = '/'
     }
     return (
         <>

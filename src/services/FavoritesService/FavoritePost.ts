@@ -10,6 +10,7 @@ export async function getAllFavorites({ userId }: iParams) {
         _id,
         _createdAt,
             postId -> {
+            _id,
             title,
             slug,
                 text,
