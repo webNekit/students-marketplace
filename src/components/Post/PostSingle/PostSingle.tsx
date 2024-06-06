@@ -25,7 +25,7 @@ export async function PostSingle({ post }: iSingleProps) {
                             <ul className="flex flex-wrap gap-2 max-w-2xl">
                                 {post.tags?.map((tag) => {
                                     return (
-                                        <li className="inline-flex">
+                                        <li key={tag._id} className="inline-flex">
                                             <span>#{tag.name}</span>
                                         </li>
                                     );
