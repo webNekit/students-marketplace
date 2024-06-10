@@ -1,50 +1,50 @@
 "use client";
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import { toast } from 'sonner';
 
 export function ContactsForm() {
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [message, setMessage] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [isSuccess, setIsSuccess] = useState(false);
-    const [error, setError] = useState('');
-
-    const handleSubmit = async (e: React.FormEvent) => {
+    const [name, setName] = useState<string>();
+    const [email, setEmail] = useState<string>();
+    const [message, setMessage] = useState<string>();
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    async function handleSubmit(e: React.SyntheticEvent) {
         e.preventDefault();
-        setIsLoading(true);
-        setError('');
-        setIsSuccess(false);
-
+        setIsSubmitting(true);
         try {
-            const res = await fetch('/api/telegram', {
+            const res = await fetch('/api/email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, name, message }),
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message
+                }),
             });
 
-            const data = await res.json();
-
-            if (res.ok) {
-                setIsSuccess(true);
-                setEmail('');
-                setName('');
-                setMessage('');
-            } else {
-                setError(data.message || 'Something went wrong');
+            if (!res.ok) {
+                throw new Error('Ошибка отправки сообщения');
+            }else{
+                toast("Сообщение успешно отправлено!")
             }
-        } catch (error) {
-            setError('Failed to send message');
-        } finally {
-            setIsLoading(false);
-        }
-    };
+            setName('');
+            setEmail('');
+            setMessage('');
 
+            // Optional: Add success handling logic here
+
+        } catch (error) {
+            console.error('Ошибка отправки сообщения:', error);
+            // Optional: Add error handling logic here
+        } finally {
+            setIsSubmitting(false); // Установить состояние отправки в false после завершения
+        }
+    }
     return (
         <div className="max-w-3xl mx-auto space-y-5">
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -82,11 +82,9 @@ export function ContactsForm() {
                         />
                     </div>
                 </div>
-                <Button type="submit" variant="default" className="w-full sm:w-auto" disabled={isLoading}>
-                    {isLoading ? 'Отправка...' : 'Отправить'}
+                <Button type="submit" variant="default" className="w-full sm:w-auto">
+                    {isSubmitting ? 'Отправка...' : 'Отправить'}
                 </Button>
-                {isSuccess && <p className="text-green-500">Сообщение успешно отправлено!</p>}
-                {error && <p className="text-red-500">{error}</p>}
             </form>
         </div>
     );
