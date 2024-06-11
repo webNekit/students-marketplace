@@ -34,24 +34,30 @@ export async function PostSingle({ post }: iSingleProps) {
                         </div>
                         <ul className="flex items-center gap-2 w-full sm:w-auto">
                             {isLoginUser ?
-                                    <li className="inline-flex w-full sm:w-auto">
-                                        <FavoritesButton userId={user?.id} postId={post._id} categoryId={post.categoryId?._id} />
-                                    </li>
+                                <li className="inline-flex w-full sm:w-auto">
+                                    <FavoritesButton userId={user?.id} postId={post._id} categoryId={post.categoryId?._id} />
+                                </li>
                                 :
                                 ''
                             }
-                            <li className="inline-flex w-full sm:w-auto">
-                                <Button variant={'outline'} asChild className="w-full sm:w-auto">
-                                    <Link href={`${post.previewLink}`} target="_blank" className="flex items-center gap-2 w-full sm:w-auto">
-                                        <Eye size={20} />Предпросмотр</Link>
-                                </Button>
-                            </li>
-                            <li className="inline-flex w-full sm:w-auto">
-                                <Button variant={'default'} asChild className="w-full sm:w-auto">
-                                    <Link href={`${post.downloadLink}`} target="_blank" className="flex items-center gap-2 w-full sm:w-auto">
-                                        <ArrowDownToLine size={20} />Скачать</Link>
-                                </Button>
-                            </li>
+                            {post.previewLink ?
+                                <li className="inline-flex w-full sm:w-auto">
+                                    <Button variant={'outline'} asChild className="w-full sm:w-auto">
+                                        <Link href={`${post.previewLink}`} target="_blank" className="flex items-center gap-2 w-full sm:w-auto">
+                                            <Eye size={20} />Предпросмотр</Link>
+                                    </Button>
+                                </li>
+                                : ''
+                            }
+                            {post.downloadLink ?
+                                <li className="inline-flex w-full sm:w-auto">
+                                    <Button variant={'default'} asChild className="w-full sm:w-auto">
+                                        <Link href={`${post.downloadLink}`} target="_blank" className="flex items-center gap-2 w-full sm:w-auto">
+                                            <ArrowDownToLine size={20} />Скачать</Link>
+                                    </Button>
+                                </li>
+                                : ''
+                            }
                         </ul>
                     </div>
                 </div>
