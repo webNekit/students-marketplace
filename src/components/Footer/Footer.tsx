@@ -3,9 +3,11 @@ import { CategoryFooter } from "../Category/CategoryFooter/CategoryFooter";
 import { Suspense } from "react";
 
 export function Footer() {
+    const date = new Date();
+    const currentDate = date.getFullYear();
     return (
         <footer className="w-full py-10 border-t" id="footer">
-            <div className="container mx-auto">
+            <div className="container mx-auto space-y-7">
                 <div className="w-full flex flex-col md:flex-row justify-between items-start gap-10">
                     <div className="w-full md:w-3/12 space-y-5">
                         <Link href={'/'} className="text-2xl text-gray-50 font-semibold">
@@ -46,6 +48,10 @@ export function Footer() {
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div className="w-full flex items-center justify-between gap-2 flex-col md:flex-row">
+                    <p className="text-sm text-gray-500">&copy; {currentDate} StudentSave</p>
+                    <Link href={'https://t.me/@nekitmochalov007'} target="_blank" className="text-sm text-gray-500 hover:underline hover:text-white">Разработчик: Мочалов Никита</Link>
                 </div>
             </div>
         </footer>
