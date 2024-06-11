@@ -19,4 +19,10 @@
 export interface Contents {
     _key: string;
     text?: string;
+    title?: string;
+    image?: {
+        asset: {
+            url?: string;
+        }
+    }
 }

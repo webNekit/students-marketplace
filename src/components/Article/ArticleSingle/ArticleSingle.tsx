@@ -25,8 +25,17 @@ export async function ArticleSingle({ article }: iSingleProps) {
                     </div>
                     <div className="w-full py-4 space-y-4">
                         {article.contents.map((content) => {
-                            return(
-                                <p key={content._key} className="w-full text-gray-300 leading-7">{content.text}</p>
+                            return (
+                                <div key={content._key} className="w-full space-y-2">
+                                    {content.title ? <h2 className="text-white text-xl font-semibold">{content.title}</h2> : ''}
+                                    {content.text ? <p className="w-full text-gray-300 leading-7">{content.text}</p> : ''}
+                                    {content.image?.asset.url ?
+                                        <div className="relative w-full h-96">
+                                            <Image fill src={`${content.image?.asset.url}`} alt={`Изображение - ${content.title}`} className="w-full h-full object-cover object-center rounded-md" />
+                                        </div>
+                                        : ''
+                                    }
+                                </div>
                             );
                         })}
                     </div>

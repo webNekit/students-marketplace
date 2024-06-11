@@ -57,9 +57,22 @@ export const article = {
                     type: 'object',
                     fields: [
                         {
+                            name: 'title',
+                            type: 'string',
+                            title: 'Заголовок'
+                        },
+                        {
                             name: 'text',
                             type: 'text',
                             title: 'Абзац'
+                        },
+                        {
+                            name: 'image',
+                            title: 'Изображение',
+                            type: 'image',
+                            options: {
+                                hotspot: true
+                            },
                         }
                     ]
                 }
