@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { iArticle } from "../iArticle";
+import { Share } from "@/components/Share/Share";
 
 interface iSingleProps {
     article: iArticle;
@@ -23,12 +24,13 @@ export async function ArticleSingle({ article }: iSingleProps) {
                             </li>
                         </ul>
                     </div>
+                    <h2 className="text-white text-2xl md:text-4xl font-semibold">{article.title}</h2>
                     <div className="w-full py-4 space-y-4">
                         {article.contents.map((content) => {
                             return (
                                 <div key={content._key} className="w-full space-y-2">
                                     {content.title ? <h2 className="text-white text-xl font-semibold">{content.title}</h2> : ''}
-                                    {content.text ? <p className="w-full text-gray-300 leading-7">{content.text}</p> : ''}
+                                    {content.text ? <p className="w-full text-gray-400 leading-7">{content.text}</p> : ''}
                                     {content.image?.asset.url ?
                                         <div className="relative w-full h-96">
                                             <Image fill src={`${content.image?.asset.url}`} alt={`Изображение - ${content.title}`} className="w-full h-full object-cover object-center rounded-md" />
@@ -39,6 +41,11 @@ export async function ArticleSingle({ article }: iSingleProps) {
                             );
                         })}
                     </div>
+                </div>
+            </div>
+            <div className="md:max-w-4xl mx-auto px-4">
+                <div className="w-full flex justify-end">
+                    <Share title={article.title} image={article.image?.asset.url} smallText={article.text} />
                 </div>
             </div>
         </section>
